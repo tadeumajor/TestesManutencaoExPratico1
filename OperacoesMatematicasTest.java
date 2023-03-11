@@ -64,16 +64,16 @@ class OperacoesMatematicasTest {
         @Test
     void converteTemperatura() {
         Assertions.assertEquals(32, OperacoesMatematicas.converteTemperatura(0));
-        Assertions.assertEquals(-28.4,OperacoesMatematicas.converteTemperatura(-2));
+        Assertions.assertEquals(28.4,OperacoesMatematicas.converteTemperatura(-2));
         Assertions.assertEquals(50,OperacoesMatematicas.converteTemperatura(10));
         Assertions.assertEquals(64.4,OperacoesMatematicas.converteTemperatura(18));
     }
 
     @Test
-    void ePrimoComSucesso() {
+    void ePrimoDeveRetornarComSucesso() {
 
-        boolean resultado1=OperacoesMatematicas.ePrimo(5);
-        boolean resultado2=OperacoesMatematicas.ePrimo(11);
+        boolean resultado1=OperacoesMatematicas.ePrimo(2);
+        boolean resultado2=OperacoesMatematicas.ePrimo(8273);
 
         Assertions.assertTrue(resultado1);
         Assertions.assertTrue(resultado2);
@@ -81,9 +81,26 @@ class OperacoesMatematicasTest {
     }
 
     @Test
-    void ePrimoSemSucesso() {
+    void ePrimoDeveRetornarFalseParaNumerosQueNaoSaoPrimos() {
         Assertions.assertFalse(OperacoesMatematicas.ePrimo(4));
         Assertions.assertFalse(OperacoesMatematicas.ePrimo(22));
 
+    }
+
+    @Test
+    void verificaListaOrdenadaComSucesso(){
+        int[] vetorOrdenadoCres = {1,2,3,4,5};
+        int[] vetorOrdenadoDec = {5,4,3,2,1};
+
+        Assertions.assertTrue((OperacoesMatematicas.listaOrdenada(vetorOrdenadoCres)));
+        Assertions.assertTrue((OperacoesMatematicas.listaOrdenada(vetorOrdenadoDec)));
+    }
+    @Test
+    void listaOrdenadaDeveRetornarFalse(){
+        int[] vetorAleatorio = {1,5,2,3};
+        int[] vetorAleatorio2 = {5,4,3,2,9};
+
+        Assertions.assertFalse((OperacoesMatematicas.listaOrdenada(vetorAleatorio)));
+        Assertions.assertFalse((OperacoesMatematicas.listaOrdenada(vetorAleatorio2)));
     }
 }

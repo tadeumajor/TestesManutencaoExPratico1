@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class OperacoesMatematicas {
 
     public static double calculaMedia(int[] vetor){
@@ -58,6 +60,22 @@ public class OperacoesMatematicas {
 
     }
 
-
+    public static boolean listaOrdenada(int[] lista){
+        if (lista.length < 2) {
+            return true;
+        }
+        boolean crescente = true;
+        boolean decrescente = true;
+        for (int i = 0; i < lista.length - 1; i++) {
+            if (lista[i] > lista[i + 1]) {
+                crescente = false;
+            }
+            if (lista[i] < lista[i + 1]) {
+                decrescente = false;
+            }
+        }
+        return crescente || decrescente;
+    }
 }
+
 
